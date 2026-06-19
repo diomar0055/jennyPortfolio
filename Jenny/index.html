@@ -1,0 +1,1875 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Jenny Rose E. Dayanan — Information Systems Student</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link
+href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap"
+rel="stylesheet" />
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+<style>
+:root{
+/* MAIN BRAND COLORS */
+--primary: #7191AA;
+--secondary: #8EA9BC;
+--accent: #AABDCC;
+
+/* BACKGROUNDS */
+--bg: #F8F6F2;
+--surface: #FFFFFF;
+--surface-alt: #E2D5C8;
+
+/* TEXT */
+--text: #2F3943;
+--text-muted: #6D7C89;
+
+/* BORDERS */
+--border: #D8E0E8;
+
+/* OPTIONAL */
+--highlight: #BEAFA3;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+font-family: 'Inter', sans-serif;
+background: radial-gradient(circle at top left, rgba(113,145,170,.12) 0%, transparent 40%),
+            radial-gradient(circle at bottom right, rgba(170,189,204,.15) 0%, transparent 45%),
+            var(--bg);
+background-attachment: fixed;
+color: var(--text);
+overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5 {
+font-family: 'Playfair Display', serif;
+}
+
+/* GLASS CARD */
+.glass {
+background: rgba(255,255,255,0.75);
+backdrop-filter: blur(18px);
+border: 1px solid rgba(113,145,170,0.15);
+box-shadow: 0 10px 40px rgba(113,145,170,0.08);
+}
+
+/* GRADIENT TEXT */
+.grad-text {
+background: linear-gradient(135deg, #7191AA, #AABDCC);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+background-clip: text;
+}
+
+/* ===================== NAVBAR ===================== */
+#navbar {
+position: fixed;
+top: 16px;
+left: 50%;
+transform: translateX(-50%);
+width: calc(100% - 32px);
+max-width: 1200px;
+z-index: 1000;
+border-radius: 20px;
+padding: 14px 24px;
+transition: all 0.3s ease;
+}
+
+.nav-inner {
+display: flex;
+align-items: center;
+justify-content: space-between;
+}
+
+.nav-brand {
+display: flex;
+align-items: center;
+gap: 12px;
+flex-shrink: 0;
+}
+
+.logo-box{
+width: 37px;
+height: 37px;
+border-radius: 12px;
+overflow: hidden;
+display: flex;
+align-items: center;
+justify-content: center;
+background: linear-gradient(135deg, var(--primary), var(--secondary));
+}
+
+.logo-box img{
+width: 100%;
+height: 100%;
+object-fit: cover;
+display: block;
+}
+
+.brand-name {
+font-family: 'Playfair Display', serif;
+font-weight: 600;
+font-size: 1rem;
+color: var(--text);
+letter-spacing: -0.02em;
+white-space: nowrap;
+}
+
+.desktop-nav {
+display: flex;
+align-items: center;
+gap: 8px;
+}
+
+.nav-link {
+color: var(--text-muted);
+font-size: 0.875rem;
+font-weight: 500;
+transition: all 0.2s;
+cursor: pointer;
+position: relative;
+padding: 8px 16px;
+letter-spacing: 0.01em;
+white-space: nowrap;
+background: none;
+border: none;
+border-radius: 10px;
+}
+
+.nav-link:hover {
+color: var(--primary);
+background: rgba(113,145,170,0.1);
+}
+
+.nav-link.active {
+color: var(--primary);
+background: rgba(113,145,170,0.15);
+}
+
+#hamburger {
+display: none;
+background: none;
+border: 1px solid var(--border);
+border-radius: 10px;
+cursor: pointer;
+color: var(--text-muted);
+padding: 8px;
+align-items: center;
+justify-content: center;
+flex-shrink: 0;
+transition: all 0.2s;
+}
+
+#hamburger:hover {
+border-color: var(--primary);
+color: var(--primary);
+background: rgba(113,145,170,0.1);
+}
+
+#mobile-menu {
+display: none;
+flex-direction: column;
+gap: 4px;
+padding-top: 16px;
+margin-top: 14px;
+border-top: 1px solid var(--border);
+}
+
+#mobile-menu.open { display: flex; }
+
+#mobile-menu .nav-link {
+padding: 12px 16px;
+font-size: 0.95rem;
+display: block;
+border-radius: 10px;
+text-align: left;
+}
+
+/* ===================== BUTTONS ===================== */
+.btn-primary {
+background: linear-gradient(135deg, #7191AA, #8EA9BC);
+color: white;
+box-shadow: 0 12px 30px rgba(113,145,170,.25);
+padding: 14px 32px;
+border-radius: 12px;
+font-weight: 600;
+font-size: 0.9rem;
+font-family: 'Inter', sans-serif;
+transition: all 0.2s ease;
+border: none;
+cursor: pointer;
+letter-spacing: 0.01em;
+display: inline-block;
+text-align: center;
+}
+
+.btn-primary:hover {
+transform: translateY(-2px);
+box-shadow: 0 16px 40px rgba(113,145,170,0.35);
+}
+
+.btn-secondary {
+color: var(--text);
+padding: 14px 32px;
+border-radius: 12px;
+font-weight: 600;
+font-size: 0.9rem;
+font-family: 'Inter', sans-serif;
+transition: all 0.2s ease;
+border: 1px solid var(--border);
+cursor: pointer;
+background: rgba(255,255,255,0.6);
+letter-spacing: 0.01em;
+display: inline-block;
+text-align: center;
+text-decoration: none;
+}
+
+.btn-secondary:hover {
+border-color: var(--primary);
+color: var(--primary);
+background: rgba(113,145,170,0.1);
+transform: translateY(-2px);
+}
+
+.btn-sm {
+padding: 10px 20px;
+border-radius: 10px;
+font-size: 0.8rem;
+font-weight: 600;
+font-family: 'Inter', sans-serif;
+border: 1px solid var(--border);
+color: var(--primary);
+cursor: pointer;
+background: transparent;
+transition: all 0.2s;
+}
+
+.btn-sm:hover {
+background: rgba(113,145,170,0.15);
+border-color: var(--primary);
+}
+
+/* ===================== SECTIONS ===================== */
+section { padding: 100px 0; }
+
+.container {
+max-width: 1200px;
+margin: 0 auto;
+padding: 0 clamp(20px, 8vw, 135px);
+}
+
+.section-tag {
+font-size: 0.7rem;
+font-weight: 700;
+letter-spacing: 0.2em;
+text-transform: uppercase;
+color: var(--primary);
+margin-bottom: 14px;
+display: block;
+}
+
+.section-title {
+font-size: clamp(1.8rem, 4vw, 3rem);
+font-weight: 700;
+color: var(--text);
+line-height: 1.1;
+}
+
+.section-header {
+text-align: center;
+margin-bottom: 56px;
+}
+
+.divider {
+width: 56px;
+height: 4px;
+background: linear-gradient(90deg, var(--primary), var(--secondary));
+border-radius: 4px;
+margin-bottom: 24px;
+}
+
+.divider-center { margin-left: auto; margin-right: auto; }
+
+/* ===================== HERO ===================== */
+#home {
+padding-top: 140px;
+padding-bottom: 100px;
+position: relative;
+overflow: hidden;
+min-height: 100vh;
+display: flex;
+align-items: center;
+}
+
+.hero-bg { 
+position: absolute; 
+inset: 0; 
+overflow: hidden; 
+z-index: 0; 
+}
+
+.hero-orb {
+position: absolute;
+border-radius: 50%;
+filter: blur(120px);
+opacity: 0.3;
+}
+
+.hero-orb-1 {
+background: rgba(113,145,170,0.4);
+width: 500px;
+height: 500px;
+top: -250px;
+left: -150px;
+}
+
+.hero-orb-2 {
+background: rgba(170,189,204,0.3);
+width: 400px;
+height: 400px;
+bottom: -200px;
+right: -100px;
+}
+
+.hero-grid {
+display: grid;
+grid-template-columns: 1fr auto;
+gap: 80px;
+align-items: center;
+position: relative;
+z-index: 1;
+}
+
+.profile-container {
+width: 300px;
+height: 400px;
+background: linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(226,213,200,0.6) 100%);
+border: 2px solid rgba(113,145,170,0.25);
+border-radius: 24px;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+position: relative;
+overflow: hidden;
+box-shadow: 0 24px 60px rgba(113,145,170,0.2);
+animation: floatY 5s ease-in-out infinite;
+flex-shrink: 0;
+}
+
+.profile-container::before {
+content: '';
+position: absolute;
+inset: -2px;
+border-radius: 24px;
+background: linear-gradient(135deg, rgba(113,145,170,0.4), rgba(170,189,204,0.2));
+z-index: -1;
+filter: blur(10px);
+}
+
+@keyframes floatY {
+0%, 100% { transform: translateY(0); }
+50% { transform: translateY(-20px); }
+}
+
+.hero-badge {
+display: inline-flex;
+align-items: center;
+gap: 10px;
+background: rgba(255,255,255,0.8);
+border: 1px solid var(--border);
+border-radius: 40px;
+padding: 6px 18px;
+margin-bottom: 28px;
+}
+
+.hero-badge-dot {
+width: 8px; 
+height: 8px;
+background: var(--primary);
+border-radius: 50%;
+display: inline-block;
+animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+0%, 100% { opacity: 1; }
+50% { opacity: 0.5; }
+}
+
+.hero-badge-text {
+font-size: 0.8rem;
+color: var(--text);
+font-weight: 600;
+letter-spacing: 0.05em;
+}
+
+.hero-buttons {
+display: flex;
+gap: 14px;
+flex-wrap: wrap;
+}
+
+/* ===================== ABOUT ===================== */
+#about { 
+background: var(--surface-alt);
+}
+
+.two-col-grid {
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 72px;
+align-items: start;
+}
+
+.highlight-card {
+background: rgba(255,255,255,0.6);
+border: 1px solid var(--border);
+border-radius: 14px;
+padding: 16px 20px;
+display: flex;
+align-items: center;
+gap: 14px;
+transition: all 0.25s;
+}
+
+.highlight-card:hover {
+border-color: var(--primary);
+background: rgba(113,145,170,0.1);
+transform: translateX(6px);
+}
+
+.highlight-icon {
+width: 42px; 
+height: 42px;
+border-radius: 12px;
+background: rgba(113,145,170,0.15);
+display: flex;
+align-items: center;
+justify-content: center;
+flex-shrink: 0;
+}
+
+/* ===================== SKILLS ===================== */
+.skills-grid {
+display: grid;
+grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+gap: 20px;
+}
+
+.skill-card {
+background: rgba(255,255,255,0.7);
+border: 1px solid var(--border);
+border-radius: 16px;
+padding: 28px 24px;
+transition: all 0.3s ease;
+}
+
+.skill-card:hover {
+border-color: var(--primary);
+background: rgba(113,145,170,0.08);
+transform: translateY(-4px);
+box-shadow: 0 12px 32px rgba(113,145,170,0.15);
+}
+
+/* ===================== SERVICES ===================== */
+#services {
+background: var(--surface-alt);
+}
+
+.services-grid {
+display: grid;
+grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+gap: 24px;
+}
+
+.service-card {
+background: rgba(255,255,255,0.7);
+border: 1px solid var(--border);
+border-radius: 18px;
+padding: 28px 24px;
+transition: all 0.3s ease;
+}
+
+.service-card:hover {
+border-color: var(--primary);
+background: rgba(113,145,170,0.08);
+transform: translateY(-6px);
+box-shadow: 0 16px 40px rgba(113,145,170,0.15);
+}
+
+/* ===================== PROJECTS ===================== */
+.projects-grid {
+display: grid;
+grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+gap: 24px;
+}
+
+.project-card {
+background: rgba(255,255,255,0.8);
+border: 1px solid var(--border);
+border-radius: 18px;
+overflow: hidden;
+transition: all 0.3s ease;
+}
+
+.project-card:hover {
+border-color: var(--primary);
+transform: translateY(-6px);
+box-shadow: 0 20px 50px rgba(113,145,170,0.2);
+}
+
+.project-img {
+width: 100%;
+aspect-ratio: 16/9;
+background: rgba(226,213,200,0.4);
+border-bottom: 1px solid var(--border);
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+gap: 10px;
+color: var(--text-muted);
+font-size: 0.8rem;
+overflow: hidden;
+position: relative;
+}
+
+.project-img img {
+width: 100%;
+height: 100%;
+object-fit: cover;
+display: block;
+}
+
+.img-overlay {
+position: absolute; 
+inset: 0;
+background: rgba(113,145,170,0.2);
+display: flex; 
+align-items: center; 
+justify-content: center;
+opacity: 0;
+transition: opacity 0.3s;
+}
+
+.project-img:hover .img-overlay { opacity: 1; }
+
+.tech-tag {
+font-size: 0.72rem;
+background: rgba(113,145,170,0.15);
+border: 1px solid rgba(113,145,170,0.3);
+color: var(--primary);
+padding: 4px 12px;
+border-radius: 20px;
+font-weight: 500;
+}
+
+/* ===================== CERTIFICATES ===================== */
+#certificates { 
+background: var(--surface-alt);
+}
+
+.certs-grid {
+display: grid;
+grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+gap: 20px;
+}
+
+.cert-card {
+background: rgba(255,255,255,0.8);
+border: 1px solid var(--border);
+border-radius: 18px;
+overflow: hidden;
+transition: all 0.3s ease;
+}
+
+.cert-card:hover {
+border-color: var(--primary);
+transform: translateY(-4px);
+box-shadow: 0 12px 32px rgba(113,145,170,0.15);
+}
+
+.cert-img {
+width: 100%;
+aspect-ratio: 16/10;
+background: linear-gradient(135deg, rgba(226,213,200,0.8) 0%, rgba(255,255,255,0.6) 100%);
+border-bottom: 1px solid var(--border);
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+gap: 8px;
+color: var(--text-muted);
+font-size: 0.8rem;
+overflow: hidden;
+}
+
+.cert-img img{
+width:100%;
+height:100%;
+object-fit:cover;
+display:block;
+}
+
+/* ===================== CONTACT ===================== */
+.form-input {
+width: 100%;
+background: rgba(255,255,255,0.6);
+border: 1px solid var(--border);
+border-radius: 12px;
+padding: 14px 16px;
+color: var(--text);
+font-family: 'Inter', sans-serif;
+font-size: 0.9rem;
+transition: all 0.2s;
+outline: none;
+}
+
+.form-input:focus {
+border-color: var(--primary);
+background: rgba(113,145,170,0.05);
+}
+
+.form-input::placeholder { 
+color: var(--text-muted); 
+}
+
+.contact-link {
+display: flex;
+align-items: center;
+gap: 16px;
+text-decoration: none;
+color: var(--text);
+transition: all 0.2s;
+padding: 6px 0;
+}
+
+.contact-link:hover { 
+color: var(--primary); 
+}
+
+.contact-icon {
+width: 44px; 
+height: 44px;
+border-radius: 12px;
+background: rgba(113,145,170,0.15);
+border: 1px solid rgba(113,145,170,0.3);
+display: flex;
+align-items: center;
+justify-content: center;
+flex-shrink: 0;
+}
+
+/* ===================== FOOTER ===================== */
+footer {
+border-top: 1px solid var(--border);
+padding: 40px 0;
+background: rgba(226,213,200,0.3);
+}
+
+.footer-inner {
+display: flex;
+align-items: center;
+justify-content: space-between;
+flex-wrap: wrap;
+gap: 24px;
+}
+
+.footer-icons {
+display: flex;
+align-items: center;
+gap: 12px;
+}
+
+.footer-icon-link {
+width: 42px; 
+height: 42px;
+border-radius: 12px;
+border: 1px solid var(--border);
+display: flex;
+align-items: center;
+justify-content: center;
+text-decoration: none;
+transition: all 0.2s;
+background: rgba(255,255,255,0.5);
+}
+
+.footer-icon-link:hover {
+border-color: var(--primary);
+background: rgba(113,145,170,0.15);
+}
+
+/* ===================== ANIMATIONS ===================== */
+.fade-up {
+opacity: 0;
+transform: translateY(30px);
+transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.fade-up.visible {
+opacity: 1;
+transform: translateY(0);
+}
+
+/* ===================== SCROLLBAR ===================== */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--primary); border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: var(--secondary); }
+
+/* ===================== RESPONSIVE ===================== */
+@media (max-width: 900px) {
+.desktop-nav { display: none; }
+#hamburger { display: flex; }
+}
+
+@media (max-width: 768px) {
+#navbar {
+top: 12px;
+width: calc(100% - 24px);
+padding: 12px 18px;
+border-radius: 16px;
+}
+
+section { padding: 80px 0; }
+
+#home { 
+padding-top: 120px; 
+padding-bottom: 80px; 
+min-height: auto; 
+}
+
+.hero-grid {
+grid-template-columns: 1fr;
+gap: 48px;
+text-align: center;
+}
+
+.hero-grid > div:first-child { order: 2; }
+.hero-grid > div:last-child { order: 1; }
+
+.profile-container {
+width: 280px;
+height: 380px;
+margin: 0 auto;
+}
+
+.hero-badge { justify-content: center; }
+
+.hero-buttons {
+justify-content: center;
+}
+
+.btn-primary, .btn-secondary {
+width: 100%;
+max-width: 300px;
+}
+
+.two-col-grid {
+grid-template-columns: 1fr;
+gap: 48px;
+}
+
+.skills-grid {
+grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+gap: 16px;
+}
+
+.services-grid {
+grid-template-columns: 1fr;
+gap: 16px;
+}
+
+.projects-grid {
+grid-template-columns: 1fr;
+gap: 20px;
+}
+
+.certs-grid {
+grid-template-columns: 1fr 1fr;
+gap: 14px;
+}
+
+.contact-grid {
+grid-template-columns: 1fr !important;
+gap: 40px !important;
+}
+
+.footer-inner {
+flex-direction: column;
+align-items: flex-start;
+gap: 20px;
+}
+}
+
+@media (max-width: 480px) {
+.services-grid { grid-template-columns: 1fr; }
+.certs-grid { grid-template-columns: 1fr; }
+.skills-grid {
+grid-template-columns: 1fr;
+gap: 16px;
+}
+
+h1 { font-size: 2.4rem !important; }
+
+.btn-primary, .btn-secondary {
+padding: 12px 24px;
+font-size: 0.88rem;
+}
+
+.hero-grid {
+grid-template-columns: 1fr;
+}
+}
+
+.typing-text {
+display: inline-block;
+font-size: 1.05rem;
+color: var(--primary);
+font-weight: 600;
+margin-bottom: 20px;
+letter-spacing: 0.02em;
+max-width: fit-content;
+overflow: hidden;
+white-space: nowrap;
+border-right: 3px solid var(--primary);
+animation: typing 5s steps(40, end) infinite, blinkCursor .75s step-end infinite;
+}
+
+@keyframes typing {
+0% { width: 0; }
+50% { width: 100%; }
+80% { width: 100%; }
+100% { width: 0; }
+}
+
+@keyframes blinkCursor {
+50% {
+border-color: transparent;
+}
+}
+
+.cert-modal{
+display:none;
+position:fixed;
+inset:0;
+background:rgba(0,0,0,0.92);
+z-index:9999;
+justify-content:center;
+align-items:center;
+padding:20px;
+cursor:pointer;
+}
+
+.cert-modal img{
+max-width:90%;
+max-height:90vh;
+border-radius:16px;
+background:#fff;
+cursor:default;
+box-shadow:0 20px 60px rgba(113,145,170,0.3);
+}
+
+.close-modal{
+position:absolute;
+top:24px;
+right:36px;
+font-size:48px;
+color:white;
+cursor:pointer;
+line-height:1;
+transition: color 0.2s;
+}
+
+.close-modal:hover {
+color: var(--primary);
+}
+
+.cert-pagination{
+display:flex;
+justify-content:center;
+gap:16px;
+margin-top:40px;
+flex-wrap: wrap;
+align-items: center;
+}
+
+.about-layout {
+    display: grid;
+    grid-template-columns: 320px 1fr;
+    gap: 70px;
+    align-items: center;
+    margin-bottom: 60px;
+}
+
+.about-avatar {
+    width: 100%;
+    height: 430px;
+    background: linear-gradient(
+        135deg,
+        rgba(255,255,255,0.9) 0%,
+        rgba(226,213,200,0.6) 100%
+    );
+    border: 2px solid rgba(113,145,170,0.25);
+    border-radius: 28px;
+    overflow: hidden;
+    box-shadow: 0 24px 60px rgba(113,145,170,0.15);
+}
+
+.about-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.offer-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.offer-title {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+}
+
+@media (max-width: 768px) {
+    .about-layout {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .about-avatar {
+        max-width: 300px;
+        height: 380px;
+        margin: 0 auto;
+    }
+
+    .offer-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+.featured-project {
+    background: rgba(255,255,255,0.85);
+    border: 1px solid var(--border);
+    border-radius: 24px;
+    padding: 50px;
+    transition: all 0.3s ease;
+    text-align: left;
+}
+
+.featured-project:hover {
+    border-color: var(--primary);
+    transform: translateY(-6px);
+    box-shadow: 0 20px 50px rgba(113,145,170,0.18);
+}
+
+.project-icon {
+    width: 70px;
+    height: 70px;
+    border-radius: 18px;
+    background: rgba(113,145,170,0.12);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 24px;
+}
+
+.project-desc {
+    color: var(--text-muted);
+    line-height: 1.9;
+    font-size: 0.95rem;
+    max-width: 900px;
+}
+
+@media (max-width:768px){
+    .featured-project{
+        padding:30px 24px;
+    }
+}
+
+.project-image{
+    width:100%;
+    height:480px;
+    overflow:hidden;
+    border-radius:18px;
+    margin-bottom:24px;
+    border:1px solid var(--border);
+}
+
+@media (max-width:768px){
+    .project-image{
+        height:180px;
+    }
+}
+.project-image img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+}
+
+.logo-box{
+    width:44px;
+    height:44px;
+    border-radius:12px;
+    overflow:hidden;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:transparent;
+}
+
+.logo-box img{
+    width:100%;
+    height:100%;
+    object-fit:contain;
+    display:block;
+}
+</style>
+</head>
+<body>
+
+<!-- ===================== NAVBAR ===================== -->
+<nav id="navbar" class="glass">
+<div class="nav-inner">
+<div class="nav-brand">
+<div class="logo-box">
+    <img src="jen.png" alt="Jenny Logo">
+</div>
+<span class="brand-name">Jenny Rose</span>
+</div>
+
+<!-- Desktop Nav -->
+<div class="desktop-nav">
+<button class="nav-link active" onclick="goTo('home')">Home</button>
+<button class="nav-link" onclick="goTo('about')">About</button>
+<button class="nav-link" onclick="goTo('skills')">Skills</button>
+<button class="nav-link" onclick="goTo('services')">Services</button>
+<button class="nav-link" onclick="goTo('projects')">Projects</button>
+<button class="nav-link" onclick="goTo('certificates')">Certificates</button>
+<button class="nav-link" onclick="goTo('contact')">Contact</button>
+</div>
+
+<!-- Hamburger -->
+<button id="hamburger" onclick="toggleMenu()" aria-label="Toggle menu">
+<i data-lucide="menu" style="width:20px;height:20px;display:block;"></i>
+</button>
+</div>
+
+<!-- Mobile Menu -->
+<div id="mobile-menu">
+<button class="nav-link" onclick="goTo('home');toggleMenu()">Home</button>
+<button class="nav-link" onclick="goTo('about');toggleMenu()">About</button>
+<button class="nav-link" onclick="goTo('skills');toggleMenu()">Skills</button>
+<button class="nav-link" onclick="goTo('services');toggleMenu()">Services</button>
+<button class="nav-link" onclick="goTo('projects');toggleMenu()">Projects</button>
+<button class="nav-link" onclick="goTo('certificates');toggleMenu()">Certificates</button>
+<button class="nav-link" onclick="goTo('contact');toggleMenu()">Contact</button>
+</div>
+</nav>
+
+<!-- ===================== HERO ===================== -->
+<section id="home">
+<div class="hero-bg">
+<div class="hero-orb hero-orb-1"></div>
+<div class="hero-orb hero-orb-2"></div>
+</div>
+
+<div class="container">
+<div class="hero-grid fade-up visible">
+<!-- Right: Content -->
+<div>
+<div class="hero-badge">
+<span class="hero-badge-dot"></span>
+<span class="hero-badge-text">Open to Opportunities</span>
+</div>
+
+<h1 style="font-size:clamp(2.4rem,6vw,4.5rem);font-weight:700;line-height:1.05;letter-spacing:-0.04em;margin-bottom:16px;color:var(--text);">
+Hi, I'm <span class="grad-text">Jenny Rose</span><br>E. Dayanan
+</h1>
+
+<p class="typing-text">
+Information Systems Student
+</p>
+
+<p style="color:var(--text-muted);line-height:1.75;font-size:0.95rem;max-width:580px;margin-bottom:36px;">
+A Bachelor of Science in Information Systems student passionate about learning and applying technology to support organizational and project goals through documentation, UI design, and effective collaboration.
+</p>
+
+<div class="hero-buttons">
+<button class="btn-primary" onclick="goTo('projects')">
+View Achievements
+</button>
+<a href="Dayanan CV (1).pdf" download="Jenny-Rose-Dayanan-CV.pdf" class="btn-secondary">
+Download CV
+</a>
+<button class="btn-secondary" onclick="goTo('contact')">
+Contact Me
+</button>
+</div>
+</div>
+
+<!-- Left: Profile Portrait -->
+<div class="profile-container">
+<img
+id="avatarImg"
+src="avatar.jpg"
+alt="Jenny Rose E. Dayanan"
+onerror="this.style.display='none'; document.getElementById('avatarFallback').style.display='flex';"
+style="width:100%;height:100%;object-fit:cover;border-radius:24px;display:block;"
+/>
+<div id="avatarFallback" style="display:flex;flex-direction:column;align-items:center;gap:14px;position:absolute;inset:0;justify-content:center;">
+
+
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- ===================== ABOUT ===================== -->
+<section id="about">
+    <div class="container">
+
+        <div class="about-layout">
+
+            <!-- Left: Avatar -->
+            <div class="fade-up">
+                <div class="about-avatar">
+                    <img
+                        src="avata2.jpg"
+                        alt="Jenny Rose E. Dayanan"
+                        onerror="this.style.display='none';"
+                    />
+                </div>
+            </div>
+
+            <!-- Right: About Content -->
+            <div class="fade-up">
+                <span class="section-tag">About</span>
+                <div class="divider"></div>
+
+                <h2 class="section-title" style="margin-bottom:24px;">
+                    About Jenny Rose E. Dayanan
+                </h2>
+
+                <p style="color:var(--text-muted);line-height:1.8;font-size:0.95rem;margin-bottom:20px;">
+                    My name is Jenny Rose E. Dayanan, a Bachelor of Science in Information Systems student who is passionate about learning and applying technology to support organizational and project goals.
+                </p>
+
+                <p style="color:var(--text-muted);line-height:1.8;font-size:0.95rem;margin-bottom:20px;">
+                    I have developed skills in project documentation, user interface (UI) design, teamwork, collaboration, communication, and the use of Microsoft Office Suite, including Word, Excel, and PowerPoint.
+                </p>
+
+                <p style="color:var(--text-muted);line-height:1.8;font-size:0.95rem;">
+                    Through academic projects and on-the-job training experiences, I have strengthened my time management skills and attention to detail while working effectively with others. I am committed to continuous learning, personal growth, and developing my abilities as I prepare for a successful career in the field of Information Systems.
+                </p>
+            </div>
+
+        </div>
+
+        <!-- Bottom: What I Can Offer -->
+        <div class="fade-up">
+
+            <h3 class="offer-title">What I Can Offer</h3>
+
+            <div class="offer-grid">
+
+                <div class="highlight-card">
+                    <div class="highlight-icon">
+                        <i data-lucide="file-text" style="width:20px;height:20px;color:var(--primary);"></i>
+                    </div>
+
+                    <div>
+                        <p style="font-weight:600;color:var(--text);font-size:0.9rem;">
+                            Project Documentation
+                        </p>
+
+                        <p style="color:var(--text-muted);font-size:0.77rem;">
+                            Report preparation and documentation
+                        </p>
+                    </div>
+                </div>
+
+                <div class="highlight-card">
+                    <div class="highlight-icon">
+                        <i data-lucide="palette" style="width:20px;height:20px;color:var(--primary);"></i>
+                    </div>
+
+                    <div>
+                        <p style="font-weight:600;color:var(--text);font-size:0.9rem;">
+                            UI Design Assistance
+                        </p>
+
+                        <p style="color:var(--text-muted);font-size:0.77rem;">
+                            User interface design support
+                        </p>
+                    </div>
+                </div>
+
+                <div class="highlight-card">
+                    <div class="highlight-icon">
+                        <i data-lucide="users" style="width:20px;height:20px;color:var(--primary);"></i>
+                    </div>
+
+                    <div>
+                        <p style="font-weight:600;color:var(--text);font-size:0.9rem;">
+                            Teamwork &amp; Collaboration
+                        </p>
+
+                        <p style="color:var(--text-muted);font-size:0.77rem;">
+                            Strong collaboration skills
+                        </p>
+                    </div>
+                </div>
+
+                <div class="highlight-card">
+                    <div class="highlight-icon">
+                        <i data-lucide="clock" style="width:20px;height:20px;color:var(--primary);"></i>
+                    </div>
+
+                    <div>
+                        <p style="font-weight:600;color:var(--text);font-size:0.9rem;">
+                            Time Management
+                        </p>
+
+                        <p style="color:var(--text-muted);font-size:0.77rem;">
+                            Excellent task prioritization
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+<!-- ===================== SKILLS ===================== -->
+<section id="skills">
+<div class="container">
+<div class="section-header fade-up">
+<span class="section-tag" style="display:block;text-align:center;">Skills</span>
+<div class="divider divider-center"></div>
+<h2 class="section-title">Professional Skills</h2>
+</div>
+
+<div class="skills-grid">
+<div class="skill-card fade-up">
+<div style="margin-bottom:14px;">
+<i data-lucide="file-text" style="width:24px;height:24px;color:var(--primary);"></i>
+</div>
+<p style="font-weight:700;color:var(--text);font-size:0.92rem;margin-bottom:8px;">Project Documentation</p>
+<p style="color:var(--text-muted);font-size:0.78rem;line-height:1.6;">Creating comprehensive project documentation and report preparation with attention to detail.</p>
+</div>
+
+<div class="skill-card fade-up">
+<div style="margin-bottom:14px;">
+<i data-lucide="palette" style="width:24px;height:24px;color:var(--primary);"></i>
+</div>
+<p style="font-weight:700;color:var(--text);font-size:0.92rem;margin-bottom:8px;">User Interface (UI) Design</p>
+<p style="color:var(--text-muted);font-size:0.78rem;line-height:1.6;">Assisting in user interface design and creating user-friendly digital experiences.</p>
+</div>
+
+<div class="skill-card fade-up">
+<div style="margin-bottom:14px;">
+<i data-lucide="users-2" style="width:24px;height:24px;color:var(--primary);"></i>
+</div>
+<p style="font-weight:700;color:var(--text);font-size:0.92rem;margin-bottom:8px;">Teamwork & Collaboration</p>
+<p style="color:var(--text-muted);font-size:0.78rem;line-height:1.6;">Working effectively with diverse teams and contributing to shared goals.</p>
+</div>
+
+<div class="skill-card fade-up">
+<div style="margin-bottom:14px;">
+<i data-lucide="message-circle" style="width:24px;height:24px;color:var(--primary);"></i>
+</div>
+<p style="font-weight:700;color:var(--text);font-size:0.92rem;margin-bottom:8px;">Communication</p>
+<p style="color:var(--text-muted);font-size:0.78rem;line-height:1.6;">Effective verbal and written communication in professional settings.</p>
+</div>
+
+<div class="skill-card fade-up">
+<div style="margin-bottom:14px;">
+<i data-lucide="laptop" style="width:24px;height:24px;color:var(--primary);"></i>
+</div>
+<p style="font-weight:700;color:var(--text);font-size:0.92rem;margin-bottom:8px;">Microsoft Office Suite</p>
+<p style="color:var(--text-muted);font-size:0.78rem;line-height:1.6;">Proficiency in Word, Excel, and PowerPoint for various tasks.</p>
+</div>
+
+<div class="skill-card fade-up">
+<div style="margin-bottom:14px;">
+<i data-lucide="clock" style="width:24px;height:24px;color:var(--primary);"></i>
+</div>
+<p style="font-weight:700;color:var(--text);font-size:0.92rem;margin-bottom:8px;">Time Management</p>
+<p style="color:var(--text-muted);font-size:0.78rem;line-height:1.6;">Excellent time management and task prioritization abilities.</p>
+</div>
+
+<div class="skill-card fade-up">
+<div style="margin-bottom:14px;">
+<i data-lucide="eye" style="width:24px;height:24px;color:var(--primary);"></i>
+</div>
+<p style="font-weight:700;color:var(--text);font-size:0.92rem;margin-bottom:8px;">Attention to Detail</p>
+<p style="color:var(--text-muted);font-size:0.78rem;line-height:1.6;">Maintaining accuracy and precision in all work deliverables.</p>
+</div>
+
+<div class="skill-card fade-up">
+<div style="margin-bottom:14px;">
+<i data-lucide="refresh-cw" style="width:24px;height:24px;color:var(--primary);"></i>
+</div>
+<p style="font-weight:700;color:var(--text);font-size:0.92rem;margin-bottom:8px;">Adaptability</p>
+<p style="color:var(--text-muted);font-size:0.78rem;line-height:1.6;">Ability to adapt and learn new skills quickly in dynamic environments.</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- ===================== SERVICES ===================== -->
+<section id="services">
+<div class="container">
+<div class="section-header fade-up">
+<span class="section-tag" style="display:block;text-align:center;">Services</span>
+<div class="divider divider-center"></div>
+<h2 class="section-title">What I Can Offer to Clients</h2>
+</div>
+
+<div class="services-grid">
+<div class="service-card fade-up">
+<div style="margin-bottom:16px;">
+<i data-lucide="file-text" style="width:22px;height:22px;color:var(--primary);"></i>
+</div>
+<p style="font-weight:700;color:var(--text);font-size:0.92rem;margin-bottom:10px;">Project Documentation</p>
+<p style="color:var(--text-muted);font-size:0.8rem;line-height:1.65;">Comprehensive project documentation and report preparation services.</p>
+</div>
+
+<div class="service-card fade-up">
+<div style="margin-bottom:16px;">
+<i data-lucide="palette" style="width:22px;height:22px;color:var(--primary);"></i>
+</div>
+<p style="font-weight:700;color:var(--text);font-size:0.92rem;margin-bottom:10px;">UI Design Assistance</p>
+<p style="color:var(--text-muted);font-size:0.8rem;line-height:1.65;">User Interface design support for digital projects and applications.</p>
+</div>
+
+<div class="service-card fade-up">
+<div style="margin-bottom:16px;">
+<i data-lucide="laptop" style="width:22px;height:22px;color:var(--primary);"></i>
+</div>
+<p style="font-weight:700;color:var(--text);font-size:0.92rem;margin-bottom:10px;">Microsoft Office Services</p>
+<p style="color:var(--text-muted);font-size:0.8rem;line-height:1.65;">Proficiency in Microsoft Word, Excel, and PowerPoint tasks.</p>
+</div>
+
+<div class="service-card fade-up">
+<div style="margin-bottom:16px;">
+<i data-lucide="users" style="width:22px;height:22px;color:var(--primary);"></i>
+</div>
+<p style="font-weight:700;color:var(--text);font-size:0.92rem;margin-bottom:10px;">Teamwork & Collaboration</p>
+<p style="color:var(--text-muted);font-size:0.8rem;line-height:1.65;">Strong teamwork and collaboration skills for project success.</p>
+</div>
+
+<div class="service-card fade-up">
+<div style="margin-bottom:16px;">
+<i data-lucide="message-circle" style="width:22px;height:22px;color:var(--primary);"></i>
+</div>
+<p style="font-weight:700;color:var(--text);font-size:0.92rem;margin-bottom:10px;">Communication</p>
+<p style="color:var(--text-muted);font-size:0.8rem;line-height:1.65;">Effective verbal and written communication for clear project delivery.</p>
+</div>
+
+
+
+
+
+<div class="service-card fade-up">
+<div style="margin-bottom:16px;">
+<i data-lucide="briefcase" style="width:22px;height:22px;color:var(--primary);"></i>
+</div>
+<p style="font-weight:700;color:var(--text);font-size:0.92rem;margin-bottom:10px;">Professional Work Ethic</p>
+<p style="color:var(--text-muted);font-size:0.8rem;line-height:1.65;">Professional and responsible approach to all assignments.</p>
+</div>
+
+<div class="service-card fade-up">
+<div style="margin-bottom:16px;">
+<i data-lucide="target" style="width:22px;height:22px;color:var(--primary);"></i>
+</div>
+<p style="font-weight:700;color:var(--text);font-size:0.92rem;margin-bottom:10px;">Project Support</p>
+<p style="color:var(--text-muted);font-size:0.8rem;line-height:1.65;">Reliable support in academic and business-related projects.</p>
+</div>
+
+<div class="service-card fade-up">
+<div style="margin-bottom:16px;">
+<i data-lucide="check-circle" style="width:22px;height:22px;color:var(--primary);"></i>
+</div>
+<p style="font-weight:700;color:var(--text);font-size:0.92rem;margin-bottom:10px;">Quality Delivery</p>
+<p style="color:var(--text-muted);font-size:0.8rem;line-height:1.65;">Commitment to delivering quality work within deadlines.</p>
+</div>
+
+<div class="service-card fade-up">
+<div style="margin-bottom:16px;">
+<i data-lucide="smile" style="width:22px;height:22px;color:var(--primary);"></i>
+</div>
+<p style="font-weight:700;color:var(--text);font-size:0.92rem;margin-bottom:10px;">Positive Attitude</p>
+<p style="color:var(--text-muted);font-size:0.8rem;line-height:1.65;">Positive attitude and willingness to contribute to team success.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- ===================== PROJECTS ===================== -->
+<section id="projects">
+<div class="container">
+
+<div class="section-header fade-up">
+<span class="section-tag" style="display:block;text-align:center;">Projects</span>
+<div class="divider divider-center"></div>
+<h2 class="section-title">Featured Project</h2>
+</div>
+
+<div class="featured-project fade-up">
+
+
+<div class="project-image">
+    <img src="project.jpg" alt="Megatech Project">
+</div>
+<h3 style="
+font-size:1.8rem;
+font-weight:700;
+margin-bottom:18px;
+color:var(--text);
+">
+Megatech
+</h3>
+
+<p class="project-desc">
+Megatech is a capstone project system developed to deliver innovative
+solutions through a clean design and scalable platform architecture.
+The system was created to support business growth, streamline operations,
+and improve digital efficiency for Megalight Business. By combining
+modern technology with user-centered design, the platform empowers the
+brand with smart technology that drives long-term success and sustainable
+business development.
+</p>
+
+<div style="margin-top:28px;display:flex;gap:12px;flex-wrap:wrap;">
+<span class="tech-tag">Capstone Project</span>
+<span class="tech-tag">Information Systems</span>
+<span class="tech-tag">Business Solution</span>
+<span class="tech-tag">Scalable Platform</span>
+</div>
+
+</div>
+
+</div>
+</section>
+<!-- ===================== ACHIEVEMENTS  ===================== -->
+<section id="projects">
+<div class="container">
+<div class="section-header fade-up">
+<span class="section-tag" style="display:block;text-align:center;">Achievements</span>
+<div class="divider divider-center"></div>
+<h2 class="section-title">Academic Achievements</h2>
+</div>
+
+<div class="projects-grid">
+
+    <div class="project-card fade-up">
+  <div class="project-img">
+    <img src="td.jpg" alt="Project Achievement 1">
+  </div>
+
+  <div style="padding:24px;">
+    <span style="font-size:0.7rem;color:var(--primary);font-weight:600;letter-spacing:0.12em;text-transform:uppercase;">
+      Academic
+    </span>
+
+    <h3 style="font-weight:700;color:var(--text);font-size:1.05rem;margin:10px 0 12px;">
+      Capstone Title Defense
+    </h3>
+
+    <p style="color:var(--text-muted);font-size:0.82rem;line-height:1.65;margin-bottom:16px;">
+      Successfully passed the Capstone Title Defense, validating the project's quality, innovation, and real-world applicability.
+    </p>
+  </div>
+  
+</div>
+<div class="project-card fade-up">
+  <div class="project-img">
+    <img src="3.jpg" alt="Project Achievement 1">
+  </div>
+
+  <div style="padding:24px;">
+    <span style="font-size:0.7rem;color:var(--primary);font-weight:600;letter-spacing:0.12em;text-transform:uppercase;">
+      Academic
+    </span>
+
+    <h3 style="font-weight:700;color:var(--text);font-size:1.05rem;margin:10px 0 12px;">
+      Pre Deployment Defense
+    </h3>
+
+    <p style="color:var(--text-muted);font-size:0.82rem;line-height:1.65;margin-bottom:16px;">
+      Successfully defended the pre-deployment presentation demonstrating skills in information systems.
+    </p>
+  </div>
+</div>
+
+<div class="project-card fade-up">
+  <div class="project-img">
+    <img src="2.jpg" alt="Project Achievement 1">
+  </div>
+
+  <div style="padding:24px;">
+    <span style="font-size:0.7rem;color:var(--primary);font-weight:600;letter-spacing:0.12em;text-transform:uppercase;">
+      Academic
+    </span>
+
+    <h3 style="font-weight:700;color:var(--text);font-size:1.05rem;margin:10px 0 12px;">
+      Capstone Final Defense
+    </h3>
+
+    <p style="color:var(--text-muted);font-size:0.82rem;line-height:1.65;margin-bottom:16px;">
+      Successfully completed and defended our capstone project before the panel, showcasing a scalable and impactful system solution.
+    </p>
+  </div>
+</div>
+<div class="project-card fade-up">
+  <div class="project-img">
+    <img src="icihibit.jpg" alt="Project Achievement 1">
+  </div>
+
+  <div style="padding:24px;">
+    <span style="font-size:0.7rem;color:var(--primary);font-weight:600;letter-spacing:0.12em;text-transform:uppercase;">
+      Academic
+    </span>
+
+    <h3 style="font-weight:700;color:var(--text);font-size:1.05rem;margin:10px 0 12px;">
+     Capstone Exhibit
+    </h3>
+
+    <p style="color:var(--text-muted);font-size:0.82rem;line-height:1.65;margin-bottom:16px;">
+      Successfully showcased our capstone project during the Capstone Exhibit, highlighting its innovation, functionality, and real-world business impact to evaluators and attendees.
+    </p>
+  </div>
+  
+</div>
+<div class="project-card fade-up">
+  <div class="project-img">
+    <img src="1.jpg" alt="Project Achievement 1">
+  </div>
+
+  <div style="padding:24px;">
+    <span style="font-size:0.7rem;color:var(--primary);font-weight:600;letter-spacing:0.12em;text-transform:uppercase;">
+      Academic
+    </span>
+
+    <h3 style="font-weight:700;color:var(--text);font-size:1.05rem;margin:10px 0 12px;">
+      OJT Completion 
+    </h3>
+
+    <p style="color:var(--text-muted);font-size:0.82rem;line-height:1.65;margin-bottom:16px;">
+      Successfully completed the On-the-Job Training program, gaining valuable industry experience and strengthening professional skills in a real-world work environment.
+    </p>
+  </div>
+  
+</div>
+
+</div>
+</div>
+</section>
+
+<!-- ===================== CERTIFICATES ===================== -->
+<section id="certificates">
+  <div class="container">
+
+    <div class="section-header fade-up">
+      <span class="section-tag" style="display:block;text-align:center;">Credentials</span>
+      <div class="divider divider-center"></div>
+      <h2 class="section-title">Certificates & Training</h2>
+    </div>
+
+    <div class="certs-grid">
+
+      <!-- Certificate 1 -->
+      <div class="cert-card cert-page-1">
+        <div class="cert-img">
+          <img src="py.PNG" alt="Certificate 1">
+        </div>
+
+        <div style="padding:20px;">
+          <button class="btn-sm" onclick="openCertModal('py.PNG')">
+            View Certificate
+          </button>
+        </div>
+      </div>
+
+      <!-- Certificate 2 -->
+      <div class="cert-card cert-page-1">
+        <div class="cert-img">
+          <img src="c2.jpg" alt="Certificate 2">
+        </div>
+
+        <div style="padding:20px;">
+          <button class="btn-sm" onclick="openCertModal('c2.jpg')">
+            View Certificate
+          </button>
+        </div>
+      </div>
+
+      <!-- Certificate 3 -->
+      <div class="cert-card cert-page-1">
+        <div class="cert-img">
+          <img src="c3.jpg" alt="Certificate 3">
+        </div>
+
+        <div style="padding:20px;">
+          <button class="btn-sm" onclick="openCertModal('c3.jpg')">
+            View Certificate
+          </button>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="cert-pagination">
+      <span id="pageNumber" style="display:flex;align-items:center;font-weight:600;color:var(--text);">
+        Page 1 of 1
+      </span>
+    </div>
+
+  </div>
+</section>
+
+<div id="certModal" class="cert-modal">
+<span class="close-modal" onclick="closeCertModal()">&times;</span>
+<img id="modalCertImage" src="" alt="Certificate">
+</div>
+
+<!-- ===================== CONTACT ===================== -->
+<section id="contact">
+<div class="container">
+<div class="contact-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:start;">
+<!-- Left Info -->
+<div class="fade-up">
+<span class="section-tag">Contact</span>
+<div class="divider"></div>
+<h2 class="section-title" style="margin-bottom:20px;">Let's Connect</h2>
+
+<p style="color:var(--text-muted);line-height:1.8;font-size:0.95rem;margin-bottom:36px;">
+I am always open to meaningful conversations, collaboration opportunities, and learning experiences. Feel free to reach out!
+</p>
+
+<div style="display:flex;flex-direction:column;gap:16px;">
+<a href="mailto:jennyrosedayanan@gmail.com" class="contact-link">
+<div class="contact-icon">
+<i data-lucide="mail" style="width:18px;height:18px;color:var(--primary);"></i>
+</div>
+<span style="font-size:0.9rem;word-break:break-all;">jennyrosedayanan@gmail.com</span>
+</a>
+
+<a href="tel:09922768156" class="contact-link">
+<div class="contact-icon">
+<i data-lucide="phone" style="width:18px;height:18px;color:var(--primary);"></i>
+</div>
+<span style="font-size:0.9rem;">09922768156</span>
+</a>
+
+<div class="contact-link" style="cursor:default;">
+<div class="contact-icon">
+<i data-lucide="map-pin" style="width:18px;height:18px;color:var(--primary);"></i>
+</div>
+<span style="font-size:0.9rem;">Purok 11 Alingit Tibungco, Davao City</span>
+</div>
+</div>
+</div>
+
+<!-- Right Form -->
+<div class="glass fade-up" style="border-radius:20px;padding:32px;">
+<h3 style="font-weight:700;color:var(--text);font-size:1.1rem;margin-bottom:24px;">Send a Message</h3>
+
+<div style="display:flex;flex-direction:column;gap:16px;">
+<div>
+<label style="display:block;font-size:0.78rem;color:var(--text-muted);margin-bottom:8px;font-weight:500;">Full Name</label>
+<input class="form-input" type="text" placeholder="Your full name" />
+</div>
+
+<div>
+<label style="display:block;font-size:0.78rem;color:var(--text-muted);margin-bottom:8px;font-weight:500;">Email Address</label>
+<input class="form-input" type="email" placeholder="your@email.com" />
+</div>
+
+<div>
+<label style="display:block;font-size:0.78rem;color:var(--text-muted);margin-bottom:8px;font-weight:500;">Message</label>
+<textarea class="form-input" rows="5" placeholder="Write your message here..." style="resize:vertical;"></textarea>
+</div>
+
+<button class="btn-primary" style="width:100%;text-align:center;">Send Message</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- ===================== FOOTER ===================== -->
+<footer>
+<div class="container">
+<div class="footer-inner">
+<div>
+<div style="display:flex;align-items:center;gap:12px;margin-bottom:8px;">
+<div class="logo-box">
+<i data-lucide="user" style="width:20px;height:20px;color:#fff;"></i>
+</div>
+<span style="font-family:'Playfair Display',serif;font-weight:600;color:var(--text);font-size:0.95rem;">Jenny Rose E. Dayanan</span>
+</div>
+<p style="color:var(--text-muted);font-size:0.8rem;">Information Systems Student</p>
+</div>
+
+<div class="footer-icons">
+<a href="mailto:jennyrosedayanan@gmail.com" class="footer-icon-link">
+<i data-lucide="mail" style="width:17px;height:17px;color:var(--text-muted);"></i>
+</a>
+<a href="tel:09922768156" class="footer-icon-link">
+<i data-lucide="phone" style="width:17px;height:17px;color:var(--text-muted);"></i>
+</a>
+<a href="#" target="_blank" class="footer-icon-link">
+<i data-lucide="linkedin" style="width:17px;height:17px;color:var(--text-muted);"></i>
+</a>
+</div>
+</div>
+
+<div style="margin-top:24px;padding-top:20px;border-top:1px solid var(--border);text-align:center;">
+<p style="color:var(--text-muted);font-size:0.76rem;">© 2025 Jenny Rose E. Dayanan. All rights reserved.</p>
+</div>
+</div>
+</footer>
+
+<script>
+document.getElementById('modalCertImage').addEventListener('click', function(e){
+e.stopPropagation();
+});
+
+let certPage = 1;
+const totalPages = 1;
+
+function showCertPage(page) {
+document.querySelectorAll('.cert-card').forEach(card => {
+card.style.display = 'none';
+});
+document.querySelectorAll('.cert-page-' + page).forEach(card => {
+card.style.display = 'block';
+});
+certPage = page;
+document.getElementById('pageNumber').textContent = `Page ${certPage} of ${totalPages}`;
+}
+
+function nextCerts() {
+if (certPage < totalPages) {
+showCertPage(certPage + 1);
+}
+}
+
+function prevCerts() {
+if (certPage > 1) {
+showCertPage(certPage - 1);
+}
+}
+
+showCertPage(1);
+
+function openCertModal(imageSrc){
+document.getElementById('modalCertImage').src = imageSrc;
+document.getElementById('certModal').style.display = 'flex';
+}
+
+function closeCertModal(){
+document.getElementById('certModal').style.display = 'none';
+}
+
+document.getElementById('certModal').addEventListener('click', function(e){
+if(e.target === this){
+closeCertModal();
+}
+});
+
+lucide.createIcons();
+
+function goTo(id) {
+const el = document.getElementById(id);
+if (el) {
+const offset = 100;
+const top = el.getBoundingClientRect().top + window.scrollY - offset;
+window.scrollTo({ top, behavior: 'smooth' });
+}
+}
+
+function toggleMenu() {
+const menu = document.getElementById('mobile-menu');
+const btn = document.getElementById('hamburger');
+const isOpen = menu.classList.toggle('open');
+btn.innerHTML = isOpen
+? '<i data-lucide="x" style="width:20px;height:20px;display:block;"></i>'
+: '<i data-lucide="menu" style="width:20px;height:20px;display:block;"></i>';
+lucide.createIcons();
+}
+
+document.addEventListener('click', function(e) {
+const navbar = document.getElementById('navbar');
+if (!navbar.contains(e.target)) {
+const menu = document.getElementById('mobile-menu');
+if (menu.classList.contains('open')) {
+menu.classList.remove('open');
+document.getElementById('hamburger').innerHTML = '<i data-lucide="menu" style="width:20px;height:20px;display:block;"></i>';
+lucide.createIcons();
+}
+}
+});
+
+const sections = ['home','about','skills','services','projects','certificates','contact'];
+const navLinks = document.querySelectorAll('.nav-link');
+
+function updateActive() {
+let current = 'home';
+sections.forEach(id => {
+const el = document.getElementById(id);
+if (el && window.scrollY >= el.offsetTop - 140) current = id;
+});
+
+navLinks.forEach(link => {
+const text = link.textContent.toLowerCase().trim();
+link.classList.toggle('active', text === current);
+});
+}
+
+const fadeEls = document.querySelectorAll('.fade-up');
+const observer = new IntersectionObserver((entries) => {
+entries.forEach((entry) => {
+if (entry.isIntersecting) {
+setTimeout(() => entry.target.classList.add('visible'), 80);
+observer.unobserve(entry.target);
+}
+});
+}, { threshold: 0.08 });
+
+fadeEls.forEach(el => {
+if (!el.classList.contains('visible')) observer.observe(el);
+});
+
+window.addEventListener('scroll', updateActive, { passive: true });
+updateActive();
+
+document.querySelectorAll('.skill-card, .service-card, .project-card, .cert-card, .highlight-card').forEach((card, i) => {
+card.style.transitionDelay = `${(i % 6) * 60}ms`;
+});
+</script>
+
+</body>
+</html>
